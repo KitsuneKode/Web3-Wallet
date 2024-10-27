@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import { useEffect, useState } from 'react';
+import './App.css';
 
-import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from '@vercel/analytics/react';
 
-import ThemeSwitcher from "./components/ThemeSwitcher";
-import GenerateMnemonics from "./components/GenerateMnemonics";
-import KeyCardContainer from "./components/KeyCardContainer";
-import ViewAllButton from "./components/AllWalletButton";
-import img from "./assets/bgLessWallet.png";
+import ThemeSwitcher from './components/ThemeSwitcher';
+import GenerateMnemonics from './components/GenerateMnemonics';
+import KeyCardContainer from './components/KeyCardContainer';
+import ViewAllButton from './components/AllWalletButton';
+import img from './assets/bgLessWallet.png';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode by default
-  const [mnemonic, setMnemonic] = useState("");
+  const [mnemonic, setMnemonic] = useState('');
   const [clicks, setClicks] = useState(0);
   const [allSolWallet, setSolAllWallet] = useState([]);
   const [allEtherWallet, setEtherAllWallet] = useState([]);
@@ -30,7 +30,7 @@ const App = () => {
   return (
     <div
       className={`${
-        isDarkMode ? "bg-gray-900 text-gray-300" : "bg-gray-200 text-gray-800"
+        isDarkMode ? 'bg-gray-900 text-gray-300' : 'bg-gray-200 text-gray-800'
       } min-h-screen transition-colors duration-300`}
     >
       <header className="p-4 flex justify-end">
@@ -65,9 +65,22 @@ const App = () => {
           allEtherWallet={allEtherWallet}
           allSolWallet={allSolWallet}
         />
-        <Analytics />
-        <SpeedInsights />
       </main>
+      <footer className="p-4 text-center text-2xl">
+        <span>Made By </span>
+        <a
+          href="https://github.com/kitsunekode"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${
+            isDarkMode ? 'text-[#f2e8cf]' : 'text-blue-600'
+          } hover:underline hover:scale-105 transition`}
+        >
+          KitsuneKode
+        </a>
+      </footer>
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
